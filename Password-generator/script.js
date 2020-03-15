@@ -7,20 +7,20 @@ function getRandomInt(max) {
 }
 
 function generatePassword() {
-    let length = prompt('Length?');
+    let length = prompt('what length do you want the password to be?');
     length = parseInt(length);
 
     if (length !== NaN && length >= 8 && length <= 128) {
-        let lower = prompt('Lower?');
+        let lower = prompt('do you need lower characters?');
         lower = lower.toLowerCase();
 
-        let upper = prompt('Upper?');
+        let upper = prompt('do you need upper characters?');
         upper = upper.toLowerCase();
 
-        let numeric = prompt('Numeric?');
+        let numeric = prompt('do you need numeric?');
         numeric = numeric.toLowerCase();
 
-        let special = prompt('Special');
+        let special = prompt('do you need special');
         special = special.toLowerCase();
 
         if (
