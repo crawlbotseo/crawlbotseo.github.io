@@ -7,10 +7,20 @@ function getRandomInt(max) {
 }
 
 function generatePassword() {
-    let length = prompt('what length do you want the password to be?');
-    length = parseInt(length);
+    let lengthPrompt;
+    let length;
 
-    if (length !== NaN && length >= 8 && length <= 128) {
+    do {
+        lengthPrompt = prompt('what length do you want the password to be?');
+        length = parseInt(lengthPrompt, 10);
+    } while (length !== NaN && length <= 8 && length >= 128);
+
+    /**
+     * This section will continue to prompt the user for
+     * character sets until they respond yes to at least
+     * one of them
+     */
+    do {
         let lower = prompt('do you need lower characters?');
         lower = lower.toLowerCase();
 
@@ -22,48 +32,45 @@ function generatePassword() {
 
         let special = prompt('do you need special');
         special = special.toLowerCase();
+    } while (lower && upper && numeric && special = no);
+    /* all answers are no */
 
-        if (
-            lower === 'yes' ||
-            upper === 'yes' ||
-            special === 'yes' ||
-            numeric === 'yes'
-        ) {
-            let lowerDict = 'abcdefghijklmnopqrstuvwxyz';
-            let upperDict = 'ABDEFGHIJKLMNOPQRSTUVWXYZ';
-            let numericDict = '1235467890';
-            let specialDict = '~!@#$%^&*()_+';
 
-            let passwordDict = '';
+    /**
+     * At this moment, we know the user responded
+     * yes to a question so we can begin generating the password
+     */
+    let lowerDict = 'abcdefghijklmnopqrstuvwxyz';
+    let upperDict = 'ABDEFGHIJKLMNOPQRSTUVWXYZ';
+    let numericDict = '1235467890';
+    let specialDict = '~!@#$%^&*()_+';
 
-            if (special === 'yes') {
-                passwordDict += specialDict;
-            }
+    let passwordDict = '';
 
-            if (numeric === 'yes') {
-                passwordDict += numericDict;
-            }
-
-            if (lower === 'yes') {
-                passwordDict += lowerDict;
-            }
-
-            if (upper === 'yes') {
-                passwordDict += upperDict;
-            }
-
-            let password = '';
-
-            for (let i = 0; i < length; i++) {
-                let index = getRandomInt(passwordDict.length);
-                password += passwordDict[index];
-            }
-
-            return password;
-        } else {
-            // Ask again
-        }
+    if (special === 'yes') {
+        passwordDict += specialDict;
     }
+
+    if (numeric === 'yes') {
+        passwordDict += numericDict;
+    }
+
+    if (lower === 'yes') {
+        passwordDict += lowerDict;
+    }
+
+    if (upper === 'yes') {
+        passwordDict += upperDict;
+    }
+
+    let password = '';
+
+    for (let i = 0; i < length; i++) {
+        let index = getRandomInt(passwordDict.length);
+        password += passwordDict[index];
+    }
+
+    return password;
 }
 
 // Write password to the #password input

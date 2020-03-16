@@ -10,8 +10,8 @@ required inputs are
 - what length do you want the password to be?
 - do you need lower characters?
 - do you need upper characters?
-- do you need numeric?
-- do you need special?
+- do you need numeric characters?
+- do you need special characters?
 - after all of the inputs are added to the propmt, the script will generate a random password based on the input.
 what is the purpose of this repo
 - the purpose of this repo is to create a random password generator
