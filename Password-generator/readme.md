@@ -1,7 +1,8 @@
 # Password Generator
 
 ![image](https://github.com/crawlbotseo/crawlbotseo.github.io/issues/3#issue-581891571)
-
+// html validator//
+![image](https://github.com/crawlbotseo/crawlbotseo.github.io/issues/4)
 whats is this repo
 - this is a password generator code.
 this application generates pasword based on the input of the users
